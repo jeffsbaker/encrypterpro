@@ -12,10 +12,10 @@
 	
     <!--<gap:plugin name="com.google.cordova.admob" source="plugins.cordova.io" />--> <!-- Needed to display an admob ad at bottom of page -->
     <gap:plugin name="org.apache.cordova.inappbrowser" /> <!-- Needed to open links in phone's browser using window.open(myURL, '_system'); -->
-    <name>Cool Encrypter</name>
+    <name>Cool Encrypter Pro</name>
 
     <description>
-        Cool Encrypter encrypts and decrypts text right before your eyes like in spy movies. 
+        Cool Encrypter Pro encrypts and decrypts text right before your eyes like in spy movies. 
         Use a secret key that you and a friend agreed upon to encrypt the text.
     </description>
 
