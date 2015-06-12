@@ -1,0 +1,186 @@
+*
+{
+	padding: 0px;
+	margin: 0px;
+	-webkit-text-size-adjust: 100%; /* Stop iPhone Safari from changing some font sizes on its own */
+}
+p
+{
+	margin: 1em 0px;
+}
+html
+{
+	height: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+
+body 
+{ 
+	font-family: arial, helvetica, sans-serif; 
+	font-size: 16px;
+	height: 90%;
+	
+}
+.content
+{
+	top: 0px;
+	position: fixed;
+	margin: 65px auto;
+	width: 100%;
+	height: 90%;
+	z-index: 0;
+}
+textarea
+{
+	margin-top: 2em;
+	font-family: monospace;
+	font-size: 16px; /* px goes by height of font not width */
+	overflow-y: scroll; 
+	height: 90%;
+	padding: 3px;
+}
+:-moz-placeholder
+{ 
+	font-size: 2em; 
+}
+::-webkit-input-placeholder
+{
+	font-size: 2em;
+}
+#key, #vp
+{
+	font-size: 1em;
+}
+input[type="checkbox"]
+{
+	width: 2em;
+	height: 2em;
+}
+.header
+{
+	position: fixed;
+	top:0px;
+	transition: all 500ms;
+	background-color: #003344;
+	width: 100%;
+	z-index: 1;
+}
+.footer
+{
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+	z-index: 1;
+	background-color: #AABBCC;	
+	font-size: 1em;
+	min-height: 1em;
+}
+.menu_button
+{
+	display: table-cell;
+	cursor: pointer;
+	background-color: #bbbbcc;
+	font-size: 3em;
+	border: 2px solid #666666;
+	text-align: center;
+	vertical-align: middle;
+}
+.logo
+{
+	display: table;	
+	width: 100%;
+}
+.logo a
+{
+	text-decoration: none;
+	display: inherit;
+}
+.logo img
+{
+	border: none;
+	
+}
+.logo .text
+{
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	font-size: 2em;
+	color: #777777;
+	text-shadow: -1px -1px 0 #55bbbb, 1px -1px 0 #55bbbb, -1px 1px 0 #55bbbb, 1px 1px 0 #55bbbb;
+	padding: 5px;
+}
+.menu
+{
+	transition: all 100ms; 
+	height: 100%;
+	max-height: 0px; /* Can't transition from height:0px to auto so use max-height instead */
+	padding: 0px;
+	overflow: hidden;
+	z-index: 1;
+	/* display: none; */
+}
+.menu.on
+{
+	/* display: block;  */
+	max-height: 1000px;
+	transition: all 1s;
+}
+.menu a
+{
+	text-decoration: none;
+	display: block;
+	background-color: #bbbbbb;
+	border: 2px solid #555555;
+	font-size: 2em;
+	text-align: center;	
+	vertical-algin: middle;
+	padding: 5px 10px;
+	margin: 3px;
+	color: blue;
+}
+.menu a:hover
+{
+	background-color: #cccccc;
+
+}
+.margin
+{
+	height: 3em;
+}
+.box
+{
+	display: none;
+	position: fixed;
+  	margin: 100px auto;
+	border: 2px solid black;
+	margin: 20px;
+	background-color: white;
+	padding: 10px;
+	z-index: 100;
+	min-width: 200px;
+	min-height: 200px;
+	vertical-align: middle; 
+	border-radius: 20px;
+	font-size: 1.5em;
+}
+a.boxclose{
+    float:right;
+    margin-top:-15px;
+    margin-right:-15px;
+    cursor:pointer;
+    color: black;
+    background-color: red;
+    border: 1px solid black;
+    border-radius: 20px;
+    font-size: 1.5em;
+    font-weight: bold;
+    display: inline-block;
+    line-height: .8em;
+    padding: 11px 3px;   
+	z-index: 100;    
+}
+
+.boxclose:before {
+    content: "Close";
+}

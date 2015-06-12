@@ -1,0 +1,97 @@
+<!doctype html>
+
+<html>
+<head>
+<title>Cool Encrypter</title>
+<meta charset="UTF-8">
+<meta name="Author" content="Jeff Baker">
+<meta name="Description" content="Cool Encrypter/Decrypter is 
+used to send free encrypted text messages to your friends.  
+It encrypts the message right before your eyes with a cool 
+display like in spy movies.">
+<meta name="KeyWords" content="encrypter, decrypter, cool, free, text,
+encrypt, decrypt, encode, decode, code, cipher, cypher,
+encipher, decipher, crack, spy, movie, movies, key, unlock, lock,
+encyption, decryption, cryptography, encryptor, decryptor,
+password, secure, encoding, encoder, decoder, encoders, security">
+<meta http-equiv="Reply-To" content="coach12@aol.com">
+<link rel="STYLESHEET" type="text/css" href="styles.css">
+<meta property="og:image" content="http://www.seabreezecomputers.com/stuff/logo-lock3.gif">
+<meta name="viewport" content="width=520, user-scalable=no" /> <!-- Jeff note: If I put ", initial-scale=1.0" then the iphone zooms in!!?? -->
+<!-- target-densitydpi=device-dpi orginally fixed phonegap ignoring phonegap width and initial-scale but makes everything small on tablet! -->
+</head>
+
+<body>
+
+<script src="cordova.js"></script> <!-- You don't need to include cordova.js because Phonegap Build includes it. But you need this reference -->
+<script type="text/javascript" src="menu.js"></script>
+
+<form name="fm" id="fm" onsubmit="return false;">
+<div class="header" id="header">
+	<div class="logo">
+			<div class="text">Cool Encrypter</div>
+		<div id="menu_button" class="menu_button" onclick="menu_click(this, 'menu')" data-bit="0">Menu&#9660;</div>
+	</div>
+	<div id="menu" class="menu">
+		<a onclick="return false;">Key:
+		<input type="password" name="key" id="key" maxlength="50" onkeypress="key_pushed(event); save_key();">
+		<a><label><input type="checkbox" name="save_key_checkbox" onclick="save_key();"> Save Key</label></a>
+		<a style="display:none;" onclick="return false;">VP: 
+		<input type="text" name="vp" id="vp" onkeypress="key_pushed(event);" onchange="change_viewport();">	
+		<a onclick="menu_click('menu_button', 'menu'); encrypter();">Encrypt</a>
+		<a onclick="menu_click('menu_button', 'menu'); decrypter();">Decrypt</a>
+		<a onclick="popup_box('about_box');">About</a>
+		<a onclick="popup_box('help_box');">Help</a>	
+	</div> <!-- Close menu -->
+	<div id="test"> </div>
+</div> <!-- Close header -->
+
+<!--<div class="margin"></div>-->
+
+<div class="content" id="content">
+	<textarea name="textbox" cols="45" rows="20"
+	 placeholder="Type or Paste Text Here"
+	 oninput="widen_textbox();"
+	onclick="menu_click('menu_button', 'menu', 1); close_all();"></textarea>
+	<!-- Jeff note: Must use width: 502px because Chrome is 2px wider than IE and FF -->
+</div> <!-- close content -->
+
+<script type="text/javascript" language="JavaScript" src="encrypter.js"></script>
+<script type="text/javascript" src="viewport.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+
+
+<div id="help_box" class="box">
+<a class="boxclose" onclick="close_all()"></a>
+<p><center><b>Help</b></center>
+<p>Cool Encrypter encrypts text in a cool way right before eyes like
+in spy movies. 
+<p><b>Encrypt:</b> To encrypt text, type or paste the text in the textarea
+and then enter the encryption <b>key</b> that you and your friend agreed
+upon and press the "Encrypt" button in the menu.
+<p><b>Decrypt:</b> To decrypt a message, paste the encrypted message in the textarea
+and then enter the encryption <b>key</b> that you and your friend agreed
+upon and press the "Decrypt" button in the menu.
+</div>
+
+<div id="done_box" class="box">
+<a class="boxclose" onclick="close_all()"></a>
+<br><br>
+<p><center><b>Done</b></center></p>
+</div>
+
+<div id="about_box" class="box">
+<a class="boxclose" onclick="close_all()"></a>
+<p><center><b>About</b></center></p>
+<p>Cool Encrypter Pro App</p>
+<p>Version 1.0</p>
+<p>Based on <a href="#" onclick="window.open('http://www.seabreezecomputers.com/encrypter/', '_system');">
+http://www.seabreezecomputers.com/encrypter/</a>
+<p>Copyright 2015 by Jeff Baker
+</div>
+
+<!--<div class="footer" id="footer"></div>-->
+<script type="text/javascript" src="admob.js"></script>
+</form>
+</body>
+</html>

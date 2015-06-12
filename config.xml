@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns   = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "com.seabreezecomputers.encrypter"
+        versionCode = "0.1" 
+        version     = "0.1" >
+
+    <!-- versionCode is optional and Android only -->
+    
+    <icon src="res/icon.png" /> <!-- Just one 144x144 icon for all devices -->
+    <preference name="permissions" value="none" /> <!-- Stops Android for asking for permission for every single thing when user accepts the app install -->
+	
+    <!--<gap:plugin name="com.google.cordova.admob" source="plugins.cordova.io" />--> <!-- Needed to display an admob ad at bottom of page -->
+    <gap:plugin name="org.apache.cordova.inappbrowser" /> <!-- Needed to open links in phone's browser using window.open(myURL, '_system'); -->
+    <name>Cool Encrypter</name>
+
+    <description>
+        Cool Encrypter encrypts and decrypts text right before your eyes like in spy movies. 
+        Use a secret key that you and a friend agreed upon to encrypt the text.
+    </description>
+
+    <author href="http://seabreezecomputers.com/about/" email="jeff@seabreezecomputers.com">
+        Jeff Baker 
+    </author>
+
+</widget>
