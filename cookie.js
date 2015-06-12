@@ -25,18 +25,22 @@ function save_key()
 	{
 		console.log(document.fm.key.value);
 		var key = document.fm.key.value;
-		setCookie("key", key, 3000); // expire in 3000 days
+		//setCookie("key", key, 3000); // expire in 3000 days
+		window.localStorage.setItem("key", key); // Phonegap's way
 	}
 	else // Save key not checked. Delete key
 	{
-		setCookie("key", "", 0); 
+		//setCookie("key", "", 0); 
+		window.localStorage.removeItem("key"); // Phonegap's way
 	}
 	
 } // end function save_key()
 
 // get current cookie if it exists
-var saved_key = getCookie("key");
-if (saved_key != "")
+//var saved_key = getCookie("key");
+var saved_key = window.localStorage.getItem("key"); // Phonegap's way
+//if (saved_key != "")
+if (saved_key != null) // Phonegap's way
 {
 	document.fm.key.value = saved_key; // put key in form
 	document.fm.save_key_checkbox.checked = true; // check the checkbox

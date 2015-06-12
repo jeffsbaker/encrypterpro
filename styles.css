@@ -55,6 +55,14 @@ input[type="checkbox"]
 {
 	width: 2em;
 	height: 2em;
+	-webkit-appearance:none;
+	border: 2px solid black;
+	background-color: white;
+}
+input[type='checkbox']:checked
+{
+	background-color: blue;	
+	border: 3px groove;
 }
 .header
 {
