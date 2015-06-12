@@ -53,8 +53,8 @@ textarea
 }
 input[type="checkbox"]
 {
-	width: 2em;
-	height: 2em;
+	width: 1em;
+	height: 1em;
 	-webkit-appearance:none;
 	border: 2px solid black;
 	background-color: white;

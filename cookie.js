@@ -36,6 +36,17 @@ function save_key()
 	
 } // end function save_key()
 
+
+function toggle_checkbox()
+{
+	if (document.fm.save_key_checkbox.checked)
+		document.fm.save_key_checkbox.checked = false; // uncheck the checkbox
+	else 
+		document.fm.save_key_checkbox.checked = true; // check the checkbox	
+	save_key();	
+
+}
+
 // get current cookie if it exists
 //var saved_key = getCookie("key");
 var saved_key = window.localStorage.getItem("key"); // Phonegap's way
