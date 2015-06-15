@@ -49,12 +49,12 @@ function show_viewport()
 
 function zoomin()
 {
-	document.body.style.zoom = 1.5;
+	document.body.style.zoom = 1.2;
 }
 
 function zoomout()
 {
-	document.body.style.zoom = 0.5;
+	document.body.style.zoom = 0.7;
 }
 
 document.addEventListener('deviceready', show_viewport, false);
