@@ -40,8 +40,8 @@ function show_viewport()
 	var viewportScale = screen.width / 520;
 	if (document.getElementById('footer'))
 	{
-		footer.innerHTML += viewportScale + " " + screen.width;
-		footer.innerHTML = screen.width + " " + document.body.scrollWidth + " " + window.innerWidth + " " + document.documentElement.clientWidth +
+		//footer.innerHTML += viewportScale + " " + screen.width;
+		footer.innerHTML += screen.width + " " + document.body.scrollWidth + " " + window.innerWidth + " " + document.documentElement.clientWidth +
 		" " + window.devicePixelRatio;
 	}
 	document.fm.vp.value = viewport.getAttribute("content");
