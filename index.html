@@ -37,7 +37,8 @@ password, secure, encoding, encoder, decoder, encoders, security">
 		<input type="password" name="key" id="key" maxlength="50" onkeyup="key_pushed(event); save_key();">
 		<a onclick="toggle_checkbox();"><input type="checkbox" name="save_key_checkbox" onclick="toggle_checkbox();"> Save Key</a>
 		<a style="display:block;" onclick="return false;">VP: 
-		<input type="text" name="vp" id="vp" onkeypress="key_pushed(event);" onchange="change_viewport();">	
+		<input type="text" name="vp" id="vp" onkeypress="key_pushed(event);" onchange="change_viewport();">
+		<a><button onclick="zoomin();">Zoom In</button> <button>Zoom Out</button></a>
 		<a onclick="menu_click('menu_button', 'menu'); encrypter();">Encrypt</a>
 		<a onclick="menu_click('menu_button', 'menu'); decrypter();">Decrypt</a>
 		<a onclick="popup_box('about_box');">About</a>

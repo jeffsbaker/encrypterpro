@@ -42,10 +42,21 @@ function show_viewport()
 	{
 		//footer.innerHTML += viewportScale + " " + screen.width;
 		footer.innerHTML += screen.width + " " + document.body.scrollWidth + " " + window.innerWidth + " " + document.documentElement.clientWidth +
-		" " + window.devicePixelRatio;
+		" " + window.devicePixelRatio + " " + document.body.style.zoom;
 	}
 	document.fm.vp.value = viewport.getAttribute("content");
 }
 
+function zoomin()
+{
+	document.body.style.zoom = 1.5;
+}
+
+function zoomout()
+{
+	document.body.style.zoom = 0.5;
+}
+
 document.addEventListener('deviceready', show_viewport, false);
+show_viewport();
 
