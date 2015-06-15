@@ -17,13 +17,13 @@
 */
 
 var viewport = document.querySelector("meta[name=viewport]");
-if (screen.width <= 640) // most phones
+/*if (screen.width <= 768) // most phones
 	viewport.setAttribute("content", "width=520, target-densitydpi=high-dpi");
 else if (screen.width <= 1024) // most 7" tablets
 	viewport.setAttribute("content", "width=520, target-densitydpi=medium-dpi");	
 else if (screen.width > 1024) // most 10" tablets
 	viewport.setAttribute("content", "width=520, target-densitydpi=low-dpi");
-
+*/
 function change_viewport()
 {
 	var viewport = document.querySelector("meta[name=viewport]");
@@ -35,8 +35,17 @@ function change_viewport()
 
 
 //var viewportScale = 1 / window.devicePixelRatio;
-var viewportScale = screen.width / 520;
-if (document.getElementById('footer'))
-	footer.innerHTML += viewportScale + " " + screen.width;
-document.fm.vp.value = viewport.getAttribute("content");
+function show_viewport()
+{
+	var viewportScale = screen.width / 520;
+	if (document.getElementById('footer'))
+	{
+		footer.innerHTML += viewportScale + " " + screen.width;
+		footer.innerHTML = screen.width + " " + document.body.scrollWidth + " " + window.innerWidth + " " + document.documentElement.clientWidth +
+		" " + window.devicePixelRatio;
+	}
+	document.fm.vp.value = viewport.getAttribute("content");
+}
+
+document.addEventListener('deviceready', show_viewport, false);
 

@@ -16,21 +16,21 @@ if( /(android)/i.test(navigator.userAgent) ) {
         interstitial: ''  
     };
     if (document.getElementById('footer'))
-    	footer.innerHTML = "Android";
+    	footer.innerHTML += "Android";
 } else if(/(ipod|iphone|ipad)/i.test(navigator.userAgent)) {
     admobid = { // for iOS
         banner: 'ca-app-pub-6159883332285612/4589796965',
         interstitial: ''   
     };
     if (document.getElementById('footer'))
-		footer.innerHTML = "iOS";
+		footer.innerHTML += "iOS";
 } else {
     admobid = { // for Windows Phone
         banner: 'ca-app-pub-6159883332285612/9019996560',
         interstitial: ''   
     };
     if (document.getElementById('footer'))
-    	footer.innerHTML = "Other";
+    	footer.innerHTML += "Other";
 }
 
 function initApp() {
