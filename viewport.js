@@ -17,11 +17,11 @@
 */
 
 var viewport = document.querySelector("meta[name=viewport]");
-if (screen.width <= 480) // most phones
+if (window.innerWidth <= 414) // most phones
 	viewport.setAttribute("content", "width=520, target-densitydpi=high-dpi, initial-scale=.6");
-else if (screen.width <= 1200) // most 7" tablets and high dpi phones
+else if (window.innerWidth < 800) // most 7" tablets
 	viewport.setAttribute("content", "width=520, target-densitydpi=medium-dpi, initial-scale=1");	
-else if (screen.width > 1280) // most 10" tablets
+else if (window.innerWidth >= 800) // most 10" tablets
 	viewport.setAttribute("content", "width=520, target-densitydpi=low-dpi");
 
 function change_viewport()
@@ -48,6 +48,7 @@ function show_viewport()
 			Nexus 4		480				320					1.5
 			Nexus 7		800				602					1.33
 			Nexus 10	2560			1280				2
+			HTC Evo		720				360					2
 		*/
 	}
 	document.fm.vp.value = viewport.getAttribute("content");
