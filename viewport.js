@@ -17,13 +17,13 @@
 */
 
 var viewport = document.querySelector("meta[name=viewport]");
-/*if (screen.width <= 768) // most phones
-	viewport.setAttribute("content", "width=520, target-densitydpi=high-dpi");
-else if (screen.width <= 1024) // most 7" tablets
-	viewport.setAttribute("content", "width=520, target-densitydpi=medium-dpi");	
-else if (screen.width > 1024) // most 10" tablets
+if (screen.width <= 480) // most phones
+	viewport.setAttribute("content", "width=520, target-densitydpi=high-dpi, initial-scale=.6");
+else if (screen.width <= 1200) // most 7" tablets and high dpi phones
+	viewport.setAttribute("content", "width=520, target-densitydpi=medium-dpi, initial-scale=1");	
+else if (screen.width > 1280) // most 10" tablets
 	viewport.setAttribute("content", "width=520, target-densitydpi=low-dpi");
-*/
+
 function change_viewport()
 {
 	var viewport = document.querySelector("meta[name=viewport]");
@@ -43,20 +43,17 @@ function show_viewport()
 		//footer.innerHTML += viewportScale + " " + screen.width;
 		footer.innerHTML += screen.width + " " + document.body.scrollWidth + " " + window.innerWidth + " " + document.documentElement.clientWidth +
 		" " + window.devicePixelRatio + " " + document.body.style.zoom;
+		/*			screen.width	window.innerWidth	window.devicePixelRatio	
+			Kindle		1200			600					2
+			Nexus 4		480				320					1.5
+			Nexus 7		800				602					1.33
+			Nexus 10	2560			1280				2
+		*/
 	}
 	document.fm.vp.value = viewport.getAttribute("content");
 }
 
-function zoomin()
-{
-	document.body.style.zoom = 1.2;
-}
-
-function zoomout()
-{
-	document.body.style.zoom = 0.7;
-}
-
-document.addEventListener('deviceready', show_viewport, false);
+// In Phonegap Build:  event listener ondeviceready seems to only work with the first function you set it to
+//document.addEventListener('deviceready', show_viewport, false);
 show_viewport();
 
