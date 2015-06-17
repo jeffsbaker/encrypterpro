@@ -17,7 +17,7 @@ password, secure, encoding, encoder, decoder, encoders, security">
 <meta http-equiv="Reply-To" content="coach12@aol.com">
 <link rel="STYLESHEET" type="text/css" href="styles.css">
 <meta property="og:image" content="http://www.seabreezecomputers.com/stuff/logo-lock3.gif">
-<meta name="viewport" content="width=520, target-densitydpi=high-dpi, user-scalable=no, initial-scale=0.6" /> <!-- Jeff note: If I put ", initial-scale=1.0" then the iphone zooms in!!?? -->
+<meta name="viewport" content="width=520, user-scalable=no, initial-scale=0.6" /> <!-- Jeff note: If I put ", initial-scale=1.0" then the iphone zooms in!!?? -->
 <!-- target-densitydpi=device-dpi orginally fixed phonegap ignoring phonegap width and initial-scale but makes everything small on tablet! -->
 </head>
 
@@ -36,7 +36,7 @@ password, secure, encoding, encoder, decoder, encoders, security">
 		<a onclick="return false;">Key:
 		<input type="password" name="key" id="key" maxlength="50" onkeyup="key_pushed(event); save_key();">
 		<a onclick="toggle_checkbox();"><input type="checkbox" name="save_key_checkbox" onclick="toggle_checkbox();"> Save Key</a>
-		<a style="display:none;" onclick="return false;">VP: 
+		<a style="display:block;" onclick="return false;">VP: 
 		<input type="text" name="vp" id="vp" onkeypress="key_pushed(event);" onchange="change_viewport();">
 		<a onclick="menu_click('menu_button', 'menu'); encrypter();">Encrypt</a>
 		<a onclick="menu_click('menu_button', 'menu'); decrypter();">Decrypt</a>
@@ -89,7 +89,7 @@ http://www.seabreezecomputers.com/encrypter/</a>
 <p>Copyright 2015 by Jeff Baker
 </div>
 
-<!--<div class="footer" id="footer"></div>-->
+<div class="footer" id="footer"></div>
 <!--<script type="text/javascript" src="admob.js"></script>-->
 <script type="text/javascript" src="viewport.js"></script>
 </form>

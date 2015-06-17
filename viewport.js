@@ -15,14 +15,23 @@
 	
 	Here is my code:
 */
+function updateOrientation()
+{
+	var viewport = document.querySelector("meta[name=viewport]");
+	if (document.getElementById('footer'))
+		document.getElementById('footer').innerHTML = "";
+	show_viewport();
+	
+	if (window.innerWidth <= 414) // most phones
+		viewport.setAttribute("content", "width=520, target-densitydpi=high-dpi, initial-scale=.6");
+	else if (window.innerWidth < 800) // most 7" tablets
+		viewport.setAttribute("content", "width=520, target-densitydpi=medium-dpi, initial-scale=.7");	
+	else if (window.innerWidth >= 800) // most 10" tablets
+		viewport.setAttribute("content", "width=520, target-densitydpi=low-dpi, initial-scale=1");
+	
+	show_viewport();
+}
 
-var viewport = document.querySelector("meta[name=viewport]");
-if (window.innerWidth <= 414) // most phones
-	viewport.setAttribute("content", "width=520, target-densitydpi=high-dpi, initial-scale=.6");
-else if (window.innerWidth < 800) // most 7" tablets
-	viewport.setAttribute("content", "width=520, target-densitydpi=medium-dpi, initial-scale=1");	
-else if (window.innerWidth >= 800) // most 10" tablets
-	viewport.setAttribute("content", "width=520, target-densitydpi=low-dpi");
 
 function change_viewport()
 {
@@ -37,12 +46,14 @@ function change_viewport()
 //var viewportScale = 1 / window.devicePixelRatio;
 function show_viewport()
 {
+	var viewport = document.querySelector("meta[name=viewport]");
 	var viewportScale = screen.width / 520;
 	if (document.getElementById('footer'))
 	{
-		//footer.innerHTML += viewportScale + " " + screen.width;
-		footer.innerHTML += screen.width + " " + document.body.scrollWidth + " " + window.innerWidth + " " + document.documentElement.clientWidth +
-		" " + window.devicePixelRatio + " " + document.body.style.zoom;
+
+		document.getElementById('footer').innerHTML += screen.width + "x" +  screen.height + 
+		" " + window.innerWidth + "x" + window.innerHeight +
+		" " + window.devicePixelRatio + " " + window.orientation + " ";
 		/*			screen.width	window.innerWidth	window.devicePixelRatio	
 			Kindle		1200			600					2
 			Nexus 4		480				320					1.5
@@ -54,7 +65,11 @@ function show_viewport()
 	document.fm.vp.value = viewport.getAttribute("content");
 }
 
-// In Phonegap Build:  event listener ondeviceready seems to only work with the first function you set it to
+// In Phonegap Build:  event listener deviceready seems to only work with the first function you set it to
 //document.addEventListener('deviceready', show_viewport, false);
-show_viewport();
+//show_viewport();
+
+document.addEventListener("orientationchange", updateOrientation); // Call when orientation changes
+updateOrientation(); // Call on first run of app
+
 
