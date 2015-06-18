@@ -22,10 +22,11 @@ function updateOrientation()
 		document.getElementById('footer').innerHTML = "";
 	show_viewport();
 	/* Android: screen.width is always the real width in pixels. 
-		For a Nexus 7 in landscape if (window.orientation = 90 || window.orientation = -90)
+		For a Nexus 7 in landscape if (window.orientation == 90 || window.orientation == -90)
 			screen.width == 1280
 		In portrait mode screen.width == 800
 		On Android to get the fake width in points: screen.width / window.devicePixelRatio (800 / 1.33 = 602)
+		Problem with above is some Android versions or devices keep screen.width at 800 regardless of orientation
 		
 		iOS: screen.width is always the virtual width in points. (Points are 2 pixels)
 		For iPhone 5 (Retina display) in landscape
@@ -33,14 +34,41 @@ function updateOrientation()
 		In protrait mode screen.width == 320
 		
 	*/
+	var point_width = 0;
 	if( /(android)/i.test(navigator.userAgent) )
 	{
-		if (screen.width / window.devicePixelRatio <= 414) // most phones
+		if (window.orientation == 90 || window.orientation == -90) // landscape
+			point_width = Math.max(screen.width, screen.height); // The greater will be the true width in landscape
+		else // 0 or 180 (portrait)
+			point_width = Math.min(screen.width, screen.height); // The lesser will be the true width in portrait
+			
+		point_width = point_width / window.devicePixelRatio;
+		
+		if (point_width <= 480) // most phones
 			viewport.setAttribute("content", "width=520, user-scalable=no, target-densitydpi=high-dpi, initial-scale=.6");
-		else if (screen.width / window.devicePixelRatio < 800) // most 7" tablets
+		else if (point_width < 800) // most 7" tablets
 			viewport.setAttribute("content", "width=520, user-scalable=no, target-densitydpi=medium-dpi, initial-scale=.7");	
-		else if (screen.width / window.devicePixelRatio >= 800) // most 10" tablets
+		else if (point_width >= 800) // most 10" tablets
 			viewport.setAttribute("content", "width=520, user-scalable=no, target-densitydpi=low-dpi, initial-scale=1");
+	}
+	else if(/(ipod|iphone|ipad)/i.test(navigator.userAgent))
+	{
+		// Fix iphone from zooming when textarea has focus and they change orientation
+		document.fm.textbox.blur();
+		window.scrollTo(0,0);
+	//	setTimeout(function(){ 
+	//		var viewport = document.querySelector("meta[name=viewport]"); 
+			if (window.orientation == 90 || window.orientation == -90) // landscape
+			{
+				//if (screen.width <= 320)
+				//	viewport.setAttribute("content", "width=520, user-scalable=no, initial-scale=.6");
+			}
+			else // 0 or 180 (portrait)
+			{
+				if (screen.width <= 320)
+					viewport.setAttribute("content", "user-scalable=no, initial-scale=.6, maximum-scale=.6, minimum-scale=.6");
+			}
+	//	}, 500);
 	}
 	show_viewport();
 }
@@ -86,5 +114,6 @@ function show_viewport()
 window.addEventListener("orientationchange", updateOrientation); // Call when orientation changes
 //window.addEventListener("resize", updateOrientation); // Call when orientation changes
 updateOrientation(); // Call on first run of app
+
 
 

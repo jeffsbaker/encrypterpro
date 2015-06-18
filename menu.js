@@ -67,11 +67,11 @@ function window_resized()
 	*/
 	document.fm.textbox.blur();
 	
-	//viewport = document.querySelector("meta[name=viewport]");
-	//viewport.setAttribute('content', 'width=520, user-scalable=no, maximum-scale=.7');
+	viewport = document.querySelector("meta[name=viewport]");
+	viewport.setAttribute('content', 'width=520, user-scalable=no, maximum-scale=0.6');
 }
 
-window.onorientationchange = window_resized;
+//window.onorientationchange = window_resized;
 //window.onresize = window_resized;
 
 function popup_box(box)
