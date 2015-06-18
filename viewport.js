@@ -83,7 +83,7 @@ function show_viewport()
 //document.addEventListener('deviceready', show_viewport, false);
 //show_viewport();
 
-//window.addEventListener("orientationchange", updateOrientation); // Call when orientation changes
+window.addEventListener("orientationchange", updateOrientation); // Call when orientation changes
 //window.addEventListener("resize", updateOrientation); // Call when orientation changes
 updateOrientation(); // Call on first run of app
 
