@@ -55,19 +55,25 @@ function updateOrientation()
 	{
 		// Fix iphone from zooming when textarea has focus and they change orientation
 		document.fm.textbox.blur();
-		window.scrollTo(0,0);
+		//window.scrollTo(0,0);
 	//	setTimeout(function(){ 
 	//		var viewport = document.querySelector("meta[name=viewport]"); 
 			if (window.orientation == 90 || window.orientation == -90) // landscape
 			{
-				//if (screen.width <= 320)
-				//	viewport.setAttribute("content", "width=520, user-scalable=no, initial-scale=.6");
+				if (screen.width <= 320)
+				{
+					//viewport.setAttribute("content", "width=520, user-scalable=no, initial-scale=.7");
+					document.fm.textbox.style.zoom = 1.45;
+				}
 			}
 			else // 0 or 180 (portrait)
 			{
 				if (screen.width <= 320)
-					viewport.setAttribute("content", "user-scalable=no, initial-scale=.6, maximum-scale=.6, minimum-scale=.6");
-			}
+				{
+					//viewport.setAttribute("content", "user-scalable=no, initial-scale=.6, maximum-scale=.6, minimum-scale=.6");
+					document.fm.textbox.style.zoom = 1;
+				}
+			} 
 	//	}, 500);
 	}
 	show_viewport();
