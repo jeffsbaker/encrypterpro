@@ -189,6 +189,7 @@ input[type='checkbox']:checked
 	vertical-align: middle; 
 	border-radius: 20px;
 	font-size: 1.5em;
+	word-break: break-all;
 }
 a.boxclose{
     float:right;

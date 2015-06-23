@@ -18,9 +18,9 @@ password, secure, encoding, encoder, decoder, encoders, security">
 <link rel="STYLESHEET" type="text/css" href="styles.css">
 <meta property="og:image" content="http://www.seabreezecomputers.com/stuff/logo-lock3.gif">
 <link rel="apple-touch-icon" href="res/icon.png"/> <!-- Add to home screen icon -->
-<meta name="apple-mobile-web-app-capable" content="yes"> <!-- Removes safari menu for home screen icon -->
+<!--<meta name="apple-mobile-web-app-capable" content="yes">--> <!-- Removes safari menu for home screen icon --> <!-- iPhone zoomed in on orientation change and didn't focus on textarea in landscape when this was active -->
 <meta name="mobile-web-app-capable" content="yes"> <!-- Removes chrome menu for home screen icon -->
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
 
 <meta name="viewport" content="width=534, user-scalable=no" /> <!-- Jeff note: If I put ", initial-scale=1.0" then the iphone zooms in!!?? -->
 <!-- Note: Previous viewport: 
@@ -64,7 +64,7 @@ using the just the orientationchange event listener
 	<textarea name="textbox" id="textbox" cols="45" rows="20"
 	 placeholder="Type or Paste Text Here"
 	 oninput="widen_textbox();"
-	onclick="menu_click('menu_button', 'menu', 1); close_all();"></textarea>
+	onclick="menu_click('menu_button', 'menu', 1); close_all();">12345</textarea>
 	<!-- Jeff note: Must use width: 502px because Chrome is 2px wider than IE and FF -->
 <!--<div class="android_spacer" id="android_spacer"></div>-->
 </div> <!-- close content -->

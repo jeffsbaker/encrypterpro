@@ -189,3 +189,4 @@ if (window.innerWidth >= 1024) // Not recognizing the viewport width=534
 }
 
 
+
