@@ -41,8 +41,8 @@ using the just the orientationchange event listener
 <form name="fm" id="fm" onsubmit="return false;">
 <div class="header" id="header">
 	<div class="logo">
-			<div class="text">Cool Encrypter Pro</div>
-		<div id="menu_button" class="menu_button" onclick="menu_click(this, 'menu')" data-bit="0">Menu&#9660;</div>
+			<div class="text" onclick="close_all();">Cool Encrypter Pro</div>
+		<div id="menu_button" class="menu_button" onclick="menu_click(this, 'menu'); close_all();" data-bit="0">Menu&#9660;</div>
 	</div>
 	<div id="menu" class="menu">
 		<a onclick="return false;">Key:
@@ -50,8 +50,8 @@ using the just the orientationchange event listener
 		<a onclick="toggle_checkbox();"><input type="checkbox" name="save_key_checkbox" onclick="toggle_checkbox();"> Save Key</a>
 		<a style="display:none;" onclick="return false;">VP: 
 		<input type="text" name="vp" id="vp" onkeypress="key_pushed(event);" onchange="change_viewport();">
-		<a onclick="menu_click('menu_button', 'menu'); encrypter();">Encrypt</a>
-		<a onclick="menu_click('menu_button', 'menu'); decrypter();">Decrypt</a>
+		<a onclick="menu_click('menu_button', 'menu'); close_all(); encrypter();">Encrypt</a>
+		<a onclick="menu_click('menu_button', 'menu'); close_all(); decrypter();">Decrypt</a>
 		<a onclick="popup_box('about_box');">About</a>
 		<a onclick="popup_box('help_box');">Help</a>	
 	</div> <!-- Close menu -->
@@ -60,7 +60,7 @@ using the just the orientationchange event listener
 
 <!--<div class="margin"></div>-->
 
-<div class="content" id="content">
+<div class="content" id="content" onclick="menu_click('menu_button', 'menu', 1); close_all();">
 	<textarea name="textbox" id="textbox" cols="45" rows="20"
 	 placeholder="Type or Paste Text Here"
 	 oninput="widen_textbox();"

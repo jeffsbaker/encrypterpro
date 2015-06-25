@@ -94,10 +94,13 @@ function popup_box(box)
 	var box_width = box.offsetWidth;
 	var box_height = box.offsetHeight;
 	
-	//  Calculate top and left
+	//  Calculate top and left for box to be in center of screen
 	var box_left = (current_right - box_width) / 2;
 	var box_top = (current_bottom - box_height) / 2;
 	
+	// Make sure top and left is less than 0
+	if (box_left < 0) box_left = 0;
+	if (box_top < 0) box_top = 0;
 	
 	box.style.left = box_left + "px";
 	box.style.top = box_top + "px";
