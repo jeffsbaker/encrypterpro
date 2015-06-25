@@ -7,8 +7,8 @@
         version     = "1.0" >
 
     <!-- versionCode is optional and Android only -->
-    <!--<preference name="android-minSdkVersion" value="11" />--> <!--is declared with value 11 or higher.-->
-    <!--<preference name="android-targetSdkVersion" value="14" />--> <!-- Google: 11 or higher (14 or higher is recommended)-->
+  
+    <preference name="android-targetSdkVersion" value="11" /> <!-- Google: 11 or higher (14 or higher is recommended)-->
     <!--Google: If a maxSdkVersion attribute is declared, it must have a value of 11 or higher. Note that, in general, the use of maxSdkVersion is not recommended.-->
     <gap:config-file platform="android" parent="/manifest" mode="merge">
 		<supports-screens android:anyDensity="true" android:resizeable="true" 
