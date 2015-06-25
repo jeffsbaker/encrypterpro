@@ -1,22 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
     <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
-        xmlns:android   = "http://schemas.android.com/apk/res/android"
         id          = "com.seabreezecomputers.encrypterpro"
         versionCode = "1.0" 
         version     = "1.0" >
 
     <!-- versionCode is optional and Android only -->
   
-    <preference name="android-targetSdkVersion" value="11" /> <!-- Google: 11 or higher (14 or higher is recommended)-->
+    <preference name="android-targetSdkVersion" value="17" /> <!-- Google: 11 or higher (14 or higher is recommended)-->
     <!--Google: If a maxSdkVersion attribute is declared, it must have a value of 11 or higher. Note that, in general, the use of maxSdkVersion is not recommended.-->
-    <gap:config-file platform="android" parent="/manifest" mode="merge">
-		<supports-screens android:anyDensity="true" android:resizeable="true" 
-	    android:smallScreens="true" 
-	    android:normalScreens="true" 
-	    android:largeScreens="true" 
-	    android:xlargeScreens="true" />
-    </gap:config-file>
 
     <icon src="res/icon.png" /> <!-- Just one 144x144 icon for all devices -->
     <preference name="permissions" value="none" /> <!-- Stops Android for asking for permission for every single thing when user accepts the app install -->
