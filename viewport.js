@@ -54,7 +54,7 @@ function updateOrientation()
 		else if (point_width >= 800) // most 10" tablets
 			viewport.setAttribute("content", "width=520, user-scalable=no, target-densitydpi=low-dpi, initial-scale=1");
 			
-		if (point_width >= 800) // if large display
+		if (window.innerWidth >= 1024) // if large display
 			document.fm.textbox.style.zoom = 1.45; // zoom in on textarea
 		else // otherwise
 			document.fm.textbox.style.zoom = 1; // keep textarea normal
