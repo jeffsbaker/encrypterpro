@@ -35,7 +35,9 @@ function updateOrientation()
 		
 	*/
 	var point_width = 0;
-	if (window.cordova) // Only run this command if it is running in a phonegap build app
+	var ua = navigator.userAgent;
+	var is_native_android = ((ua.indexOf('Mozilla/5.0') > -1 && ua.indexOf('Android ') > -1 && ua.indexOf('AppleWebKit') > -1) && (ua.indexOf('Version') > -1) && !(ua.indexOf('Chrome') > -1));
+	if (window.cordova || is_native_android) // Only run this command if it is running in a phonegap build app or Native Android browser
 	if( /(android)/i.test(navigator.userAgent) )
 	{
 		if (window.orientation == 90 || window.orientation == -90) // landscape
@@ -46,11 +48,17 @@ function updateOrientation()
 		point_width = point_width / window.devicePixelRatio;
 		
 		if (point_width <= 480) // most phones
-			viewport.setAttribute("content", "width=520, user-scalable=no, target-densitydpi=high-dpi, initial-scale=.6");
+			viewport.setAttribute("content", "width=480, user-scalable=no, target-densitydpi=high-dpi");
 		else if (point_width < 800) // most 7" tablets
-			viewport.setAttribute("content", "width=520, user-scalable=no, target-densitydpi=medium-dpi, initial-scale=.7");	
+			viewport.setAttribute("content", "width=520, user-scalable=no, target-densitydpi=medium-dpi");	
 		else if (point_width >= 800) // most 10" tablets
 			viewport.setAttribute("content", "width=520, user-scalable=no, target-densitydpi=low-dpi, initial-scale=1");
+			
+		if (point_width >= 800) // if large display
+			document.fm.textbox.style.zoom = 1.45; // zoom in on textarea
+		else // otherwise
+			document.fm.textbox.style.zoom = 1; // keep textarea normal
+			
 	}
 	else if(/(ipod|iphone|ipad)/i.test(navigator.userAgent))
 	{
