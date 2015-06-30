@@ -22,8 +22,10 @@ password, secure, encoding, encoder, decoder, encoders, security">
 <meta name="mobile-web-app-capable" content="yes"> <!-- Removes chrome menu for home screen icon -->
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-<meta name="viewport" content="width=534, user-scalable=no" /> <!-- Jeff note: If I put ", initial-scale=1.0" then the iphone zooms in!!?? -->
-<!-- Note: Previous viewport: 
+<meta name="viewport" content="width=534, user-scalable=no, initial-scale=.65" /> <!-- Jeff note: If I put ", initial-scale=1.0" then the iphone zooms in!!?? -->
+<!-- 
+Note: Android Firefox needs initial-scale=.65 set in header.  It won't accept it being set later with javascript.
+Note: Previous viewport: 
 <meta name="viewport" content="user-scalable=no, initial-scale=.6, maximum-scale=.6, minimum-scale=.6" />
 was needed to fix iOS from zooming in on orientationchange (esp from landscape to portrait)
 if the textarea had focus. But now I have a check_tilt(e) function in viewport.js that blurs
@@ -103,7 +105,7 @@ http://www.seabreezecomputers.com/encrypter/</a>
 </div>
 
 
-<!--<div class="footer" id="footer"></div>-->
+<div class="footer" id="footer"></div>
 <!--<script type="text/javascript" src="admob.js"></script>-->
 <script type="text/javascript" src="viewport.js"></script>
 </form>

@@ -38,27 +38,33 @@ function updateOrientation()
 	var ua = navigator.userAgent;
 	var is_native_android = ((ua.indexOf('Mozilla/5.0') > -1 && ua.indexOf('Android ') > -1 && ua.indexOf('AppleWebKit') > -1) && (ua.indexOf('Version') > -1) && !(ua.indexOf('Chrome') > -1));
 	if (window.cordova || is_native_android) // Only run this command if it is running in a phonegap build app or Native Android browser
-	if( /(android)/i.test(navigator.userAgent) )
 	{
-		if (window.orientation == 90 || window.orientation == -90) // landscape
-			point_width = Math.max(screen.width, screen.height); // The greater will be the true width in landscape
-		else // 0 or 180 (portrait)
-			point_width = Math.min(screen.width, screen.height); // The lesser will be the true width in portrait
+		if( /(android)/i.test(navigator.userAgent) )
+		{
+			if (window.orientation == 90 || window.orientation == -90) // landscape
+				point_width = Math.max(screen.width, screen.height); // The greater will be the true width in landscape
+			else // 0 or 180 (portrait)
+				point_width = Math.min(screen.width, screen.height); // The lesser will be the true width in portrait
+				
+			point_width = point_width / window.devicePixelRatio;
 			
-		point_width = point_width / window.devicePixelRatio;
-		
-		if (point_width <= 480) // most phones
-			viewport.setAttribute("content", "width=480, user-scalable=no, target-densitydpi=high-dpi");
-		else if (point_width < 800) // most 7" tablets
-			viewport.setAttribute("content", "width=520, user-scalable=no, target-densitydpi=medium-dpi");	
-		else if (point_width >= 800) // most 10" tablets
-			viewport.setAttribute("content", "width=520, user-scalable=no, target-densitydpi=low-dpi, initial-scale=1");
-			
-		if (window.innerWidth >= 1024) // if large display
-			document.fm.textbox.style.zoom = 1.45; // zoom in on textarea
-		else // otherwise
-			document.fm.textbox.style.zoom = 1; // keep textarea normal
-			
+			if (point_width <= 480) // most phones
+				viewport.setAttribute("content", "width=480, user-scalable=no, target-densitydpi=high-dpi");
+			else if (point_width < 800) // most 7" tablets
+				viewport.setAttribute("content", "width=520, user-scalable=no, target-densitydpi=medium-dpi");	
+			else if (point_width >= 800) // most 10" tablets
+				viewport.setAttribute("content", "width=520, user-scalable=no, target-densitydpi=low-dpi, initial-scale=1");
+				
+		/*	if (window.innerWidth >= 1024) // if large display
+				document.fm.textbox.style.zoom = 1.45; // zoom in on textarea
+			else // otherwise
+				document.fm.textbox.style.zoom = 1; // keep textarea normal
+		*/		
+		}
+	}
+	else if (ua.indexOf('Android ') > -1 && !(ua.indexOf('Firefox') > -1)) // If Android but not native browser or Firefox
+	{
+		viewport.setAttribute("content", "width=534, user-scalable=no"); // Remove initial-scale=.65 that we added for Android Firefox
 	}
 	else if(/(ipod|iphone|ipad)/i.test(navigator.userAgent))
 	{
@@ -69,6 +75,7 @@ function updateOrientation()
 		 then I would need to zoom in on the textarea.  However, iOS still zoomed in if
 		 textarea had focus even when using blur() on orientationchange */
 		document.fm.textbox.blur();
+		viewport.setAttribute("content", "width=534, user-scalable=no"); // Remove initial-scale=.65 that we added for Android Firefox
 		//window.scrollTo(0,0);
 	//	setTimeout(function(){ 
 	//		var viewport = document.querySelector("meta[name=viewport]"); 
@@ -155,7 +162,8 @@ function show_viewport()
 
 		document.getElementById('footer').innerHTML += screen.width + "x" +  screen.height + 
 		" " + window.innerWidth + "x" + window.innerHeight +
-		" " + window.devicePixelRatio + " " + window.orientation + " ";
+		" " + window.devicePixelRatio + " " + window.orientation + " " + navigator.userAgent + " " +
+		deivce.name + " " + device.version;
 		/*			screen.width	window.innerWidth	window.devicePixelRatio	
 			Kindle		1200			600					2
 			Nexus 4		480x800			320x240				1.5
