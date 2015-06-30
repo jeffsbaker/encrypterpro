@@ -191,7 +191,8 @@ function textbox_focus()
 window.addEventListener("orientationchange", updateOrientation, false); // Call when orientation changes
 window.addEventListener( "devicemotion", check_tilt, false ); // call when phone tilted
 //window.addEventListener("resize", updateOrientation); // Call when orientation changes
-updateOrientation(); // Call on first run of app
+window.addEventListener("deviceready", updateOrientation, false);
+//updateOrientation(); // Call on first run of app
 
 //document.fm.textbox.onclick=textbox_focus;
 //window.scrollTo(0,document.body.scrollHeight);
