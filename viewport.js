@@ -157,13 +157,14 @@ function show_viewport()
 {
 	var viewport = document.querySelector("meta[name=viewport]");
 	var viewportScale = screen.width / 520;
+	var device_name = (typeof device !== 'undefined') ? device.name + " " + device.version : "None";
 	if (document.getElementById('footer'))
 	{
 
 		document.getElementById('footer').innerHTML += screen.width + "x" +  screen.height + 
 		" " + window.innerWidth + "x" + window.innerHeight +
 		" " + window.devicePixelRatio + " " + window.orientation + " " + navigator.userAgent + " " +
-		deivce.name + " " + device.version;
+		device_name;
 		/*			screen.width	window.innerWidth	window.devicePixelRatio	
 			Kindle		1200			600					2
 			Nexus 4		480x800			320x240				1.5
