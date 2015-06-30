@@ -12,8 +12,7 @@
 	
     <!--<gap:plugin name="com.google.cordova.admob" source="plugins.cordova.io" />--> <!-- Needed to display an admob ad at bottom of page -->
     <gap:plugin name="org.apache.cordova.inappbrowser" /> <!-- Needed to open links in phone's browser using window.open(myURL, '_system'); -->
-    <!--<param name="android-package" value="org.apache.cordova.device.Device" />-->
-    <gap:plugin name="org.apache.cordova.device" />
+    <!--<gap:plugin name="org.apache.cordova.device" />-->
     
     <name>Cool Encrypter Pro</name>
 
