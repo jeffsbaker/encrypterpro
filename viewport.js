@@ -157,7 +157,7 @@ function show_viewport()
 {
 	var viewport = document.querySelector("meta[name=viewport]");
 	var viewportScale = screen.width / 520;
-	var device_name = (typeof device !== 'undefined') ? device.name + " " + device.version : "None";
+	var device_name = (typeof device !== 'undefined') ? device.model + " " + device.version : "None";
 	if (document.getElementById('footer'))
 	{
 
