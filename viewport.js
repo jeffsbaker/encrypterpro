@@ -21,7 +21,10 @@ function updateOrientation()
 	if (document.getElementById('footer'))
 		document.getElementById('footer').innerHTML = "";
 	show_viewport();
-	/* Android: screen.width is always the real width in pixels. 
+	/* 
+		Android devices with stock Android browser:
+			Older Android devices with stock browser don't read 
+	Android: screen.width is always the real width in pixels. 
 		For a Nexus 7 in landscape if (window.orientation == 90 || window.orientation == -90)
 			screen.width == 1280
 		In portrait mode screen.width == 800
@@ -188,10 +191,10 @@ function textbox_focus()
 //document.addEventListener('deviceready', show_viewport, false);
 //show_viewport();
 
-window.addEventListener("orientationchange", updateOrientation, false); // Call when orientation changes
+//window.addEventListener("orientationchange", updateOrientation, false); // Call when orientation changes
 window.addEventListener( "devicemotion", check_tilt, false ); // call when phone tilted
 //window.addEventListener("resize", updateOrientation); // Call when orientation changes
-document.addEventListener("deviceready", updateOrientation, false);
+//document.addEventListener("deviceready", updateOrientation, false);
 //updateOrientation(); // Call on first run of app
 
 //document.fm.textbox.onclick=textbox_focus;
